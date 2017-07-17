@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="285.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <ProgressIndicator fx:id="progress" prefHeight="70.0" prefWidth="275.0" progress="0.0" />
+      <ListView fx:id="restaurantList" cache="true" onMouseClicked="#listViewClicked" prefHeight="200.0" prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="275.0" spacing="10.0">
+         <children>
+            <TextField fx:id="txtLatitude" alignment="CENTER" onKeyPressed="#keyPressed" promptText="Latitude" text="38.7935" />
+            <TextField fx:id="txtLongitude" alignment="CENTER" onKeyPressed="#keyPressed" promptText="Longitude" text="-77.273151" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

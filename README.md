@@ -21,8 +21,8 @@ System.out.println(restuarant.getPhoneNumber(24));  //returns 6364648889
 Full gist explanation here: https://gist.github.com/SolarFloss/eb97baab105fed817c469fa086616339
 
 ## Main Window
-[!Main Window](/src/images/gitImages/main.png)
+![Main Window](/src/images/gitImages/main.png)
 
 
 ## When you click on a list item
-[!Result](src/images/gitImages/result.png)
+![Result](src/images/gitImages/result.png)

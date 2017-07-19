@@ -1,7 +1,7 @@
 package controller;
 
 import application.BinaryTree;
-import application.Main;
+import application.MainClass;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,11 +36,11 @@ public class MainController {
     }
 
     public static void loading(){
-        listView = (ListView)Main.getScene().lookup("#restaurantList");
+        listView = (ListView) MainClass.getScene().lookup("#restaurantList");
         list = FXCollections.observableArrayList();
         list.add("Fetching Data");
         listView.setItems(list);
-        javafx.scene.control.Button btnStart = (javafx.scene.control.Button)Main.getScene().lookup("#btnStart");
+        javafx.scene.control.Button btnStart = (javafx.scene.control.Button) MainClass.getScene().lookup("#btnStart");
         //Platform.runLater(() -> btnStart.setText("Please Wait"));
     }
 
@@ -52,12 +52,12 @@ public class MainController {
         }
 
 
-        listView = (ListView)Main.getScene().lookup("#restaurantList");
-        javafx.scene.control.Button btnStart = (javafx.scene.control.Button)Main.getScene().lookup("#btnStart");
+        listView = (ListView) MainClass.getScene().lookup("#restaurantList");
+        javafx.scene.control.Button btnStart = (javafx.scene.control.Button) MainClass.getScene().lookup("#btnStart");
         list = FXCollections.observableArrayList();
         //Platform.runLater(() -> btnStart.setText("Ready!"));
-        restaurants = Main.getData();
-        ProgressIndicator progressIndicator = (ProgressIndicator)Main.getScene().lookup("#progress");
+        restaurants = MainClass.getData();
+        ProgressIndicator progressIndicator = (ProgressIndicator) MainClass.getScene().lookup("#progress");
 
         double count = 0;
         int max = restaurants.size();

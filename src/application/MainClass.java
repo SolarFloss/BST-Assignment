@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 /**
  * Created by nicholas on 6/26/17.
  */
-public class Main extends Application {
+public class MainClass extends Application {
     private static Restaurants restaurant = null;
     private static Scene scene;
     private static Stage stage;
@@ -55,11 +55,8 @@ public class Main extends Application {
                 }
             }
         }).start();
-
-
-
-
     }
+
 
 
     public static void main(String[] args) {

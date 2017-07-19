@@ -1,5 +1,6 @@
 package application;
 
+import exceptions.StackUnderflowException;
 import interfaces.IBinaryTree;
 
 /**
@@ -91,7 +92,9 @@ public class BinaryTree<E> implements IBinaryTree<E> {
 
 
     @Override
-    public Node remove(E element) {
+    public Node remove(E element) throws StackUnderflowException{
+        if(size() == 0)
+            throw new StackUnderflowException("The tree is empty");
 
         Node current = get(element);
         Node parent = getParent(element);
@@ -125,13 +128,42 @@ public class BinaryTree<E> implements IBinaryTree<E> {
             }else{
                 parent.setLeft(current.getLeft());
             }
+        //Two child nodes
         }else if(current.getRight() != null && current.getLeft() != null){
-            parent = getParent(element);
-            if(isLeft){
-                //parent.getLeft()
-            }
+            Node replacement = getReplacement(current);
+
+            if(current == root)
+                root = replacement;
+
+            else if(isLeft)
+                parent.setLeft(replacement);
+
+            else
+                parent.setRight(replacement);
+
+            replacement.setLeft(current.getLeft());
         }
         return null;
+    }
+
+    public Node getReplacement(Node node){
+        Node replacementParent = node;
+        Node replacement = node;
+
+        Node current = node.getRight();
+
+        while(current != null){
+            replacementParent = replacement;
+            replacement = current;
+            current = current.getLeft();
+        }
+
+        if(replacement != node.getRight()){
+            replacementParent.setLeft(replacement.getRight());
+            replacement.setRight(replacement.getRight());
+        }
+
+        return replacement;
     }
 
 
@@ -196,7 +228,10 @@ public class BinaryTree<E> implements IBinaryTree<E> {
     }
 
     @Override
-    public Node get(E element) {
+    public Node get(E element)throws NullPointerException {
+        if(root == null)
+            return null;
+
         Node current = root;
         while(current != null){
             if(current.getValue().equals(element)) {
@@ -208,7 +243,7 @@ public class BinaryTree<E> implements IBinaryTree<E> {
             }
 
         }
-        return null;
+        throw new NullPointerException();
     }
 
     @Override
@@ -235,7 +270,7 @@ public class BinaryTree<E> implements IBinaryTree<E> {
     @Override
     public String display() {
         toString(root);
-        return null;
+        return "";
     }
 
     public String toString(Node root) {
@@ -247,8 +282,8 @@ public class BinaryTree<E> implements IBinaryTree<E> {
         return null;
     }
 
-
-    public static void main(String args[]){
+    /*
+    public static void main(String args[]) throws StackUnderflowException {
         BinaryTree<Integer> tree = new BinaryTree<>();
 
         tree.add(3);
@@ -263,12 +298,11 @@ public class BinaryTree<E> implements IBinaryTree<E> {
         tree.add(25);
         tree.add(15);
         tree.add(16);
-        tree.add(14);
-        System.out.println(tree.getParent(14).getValue());
-        tree.remove(15);
-        System.out.println(tree.getParent(14).getValue());
+        tree.remove(4);
+        System.out.print(tree.display());
 
 
 
     }
+    */
 }

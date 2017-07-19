@@ -1,8 +1,6 @@
 package controller;
 
-import application.Main;
-import controller.Restaurants;
-import javafx.application.Platform;
+import application.MainClass;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,16 +9,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * Created by nicholas on 6/26/17.
@@ -71,8 +62,8 @@ public class Restaurant {
                 stage.setTitle("Hello World");
                 scene = new Scene(root, 285, 276);
                 stage.setScene(scene);
-                stage.setX(Main.getWindowX() + Main.getWidth() + 15);
-                stage.setY(Main.getWindowY() + 20);
+                stage.setX(MainClass.getWindowX() + MainClass.getWidth() + 15);
+                stage.setY(MainClass.getWindowY() + 20);
                 stage.show();
                 stage.setOnCloseRequest(e ->{
                     open = false;

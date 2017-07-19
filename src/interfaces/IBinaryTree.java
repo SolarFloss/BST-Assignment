@@ -1,6 +1,7 @@
 package interfaces;
 
 import application.Node;
+import exceptions.StackUnderflowException;
 
 /**
  * Created by nicholas on 6/28/17.
@@ -8,7 +9,8 @@ import application.Node;
 public interface IBinaryTree<E> {
     void add(E element, int ID);
 
-    Node remove(E element);
+    //Underflow exception
+    Node remove(E element) throws StackUnderflowException;
 
     boolean contains(E element);
 
@@ -18,7 +20,7 @@ public interface IBinaryTree<E> {
 
     String toString();
 
-    Node get(E element);
+    Node get(E element) throws NullPointerException;
 
     void reset();
 
